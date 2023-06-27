@@ -9,7 +9,7 @@ import (
 func Read(key string) (res string) {
 	res = os.Getenv(key)
 	if res == "" {
-		panic(fmt.Errorf("notFoundEnv: key=%s", key))
+		panic(fmt.Errorf("not found env: key=%s", key))
 	}
 	return
 }
