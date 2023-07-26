@@ -60,11 +60,9 @@ func (x *Logger) Fatal(format string, args ...any) {
 }
 
 func (x *Logger) WithFields(fields ...Fields) IfLogger {
-	ls := make([]Fields, len(fields)+1)
-	for i := 0; i < len(ls); i++ {
-		ls[i] = fields[i]
-	}
-	ls[len(fields)-1] = x.fields
+	ls := make([]Fields, 0)
+	ls = append(ls, x.fields)
+	ls = append(ls, fields...)
 
 	logger := NewLogger(x.printer, ls...)
 	logger.SetLevel(x.level)
