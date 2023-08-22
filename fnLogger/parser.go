@@ -11,5 +11,6 @@ func (x *DefaultPrinter) Print(v Fields) {
 }
 
 func NewDefaultLogger() IfLogger {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	return NewLogger(&DefaultPrinter{})
 }
