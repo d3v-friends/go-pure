@@ -3,7 +3,7 @@ package fnArchive
 import (
 	"archive/zip"
 	"context"
-	"github.com/d3v-friends/pure-go/fnLogger"
+	"github.com/d3v-friends/go-pure/fnLogger"
 	"io"
 	"os"
 	"path/filepath"

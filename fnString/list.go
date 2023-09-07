@@ -2,7 +2,7 @@ package fnString
 
 import (
 	"fmt"
-	"github.com/d3v-friends/pure-go/fnParams"
+	"github.com/d3v-friends/go-pure/fnParams"
 )
 
 func CommaString(ls []string, iPadding ...bool) (res string) {

@@ -3,7 +3,7 @@ package fnLogger
 import (
 	"context"
 	"fmt"
-	"github.com/d3v-friends/pure-go/fnVars"
+	"github.com/d3v-friends/go-pure/fnVars"
 )
 
 func Get(ctx context.Context, iDefault ...IfLogger) (logger IfLogger) {
