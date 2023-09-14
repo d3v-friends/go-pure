@@ -3,20 +3,10 @@ package fnEnv
 import (
 	"bufio"
 	"os"
-	"path"
 	"strings"
 )
 
 func ReadFromFile(fp string) (err error) {
-	var wd string
-	if wd, err = os.Getwd(); err != nil {
-		return
-	}
-
-	if !strings.HasPrefix(fp, "/") {
-		fp = path.Join(wd, fp)
-	}
-
 	var file *os.File
 	if file, err = os.Open(fp); err != nil {
 		return

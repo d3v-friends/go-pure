@@ -66,11 +66,11 @@ func (x *Level) String() string {
 		return "Trace"
 	case 1:
 		return "Info"
-	case 3:
+	case 2:
 		return "Warn"
-	case 4:
+	case 3:
 		return "Error"
-	case 5:
+	case 4:
 		return "Fatal"
 	default:
 		panic(fmt.Errorf("unknown logger level: level=%d", *x))
