@@ -27,7 +27,7 @@ func Get[T any](value T, err error) T {
 	return value
 }
 
-func Check(v bool, err error) {
+func IsTrue(v bool, err error) {
 	if !v {
 		panic(err)
 	}
