@@ -35,6 +35,15 @@ func ReadFromFile(fp string) (err error) {
 		}
 
 		var strBody = string(body)
+
+		if strBody == "" {
+			continue
+		}
+
+		if strings.HasPrefix(strBody, "#") {
+			continue
+		}
+
 		var strLs = strings.Split(strBody, "=")
 		if len(strLs) != 2 {
 			continue
