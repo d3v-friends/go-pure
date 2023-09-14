@@ -19,3 +19,16 @@ func OnValue[T any](value T, err error) T {
 	}
 	return value
 }
+
+func Get[T any](value T, err error) T {
+	if err != nil {
+		panic(err)
+	}
+	return value
+}
+
+func Check(v bool, err error) {
+	if !v {
+		panic(err)
+	}
+}
