@@ -1,7 +1,6 @@
 package fnFile
 
 import (
-	"github.com/d3v-friends/go-pure/fnParams"
 	"os"
 	"path/filepath"
 )
@@ -15,12 +14,12 @@ func NewPathBuilder(root ...string) (res *PathBuilder, err error) {
 		elems: make([]string, 0),
 	}
 
-	if len(root) != 0 {
-		res.Join(root...)
+	if len(root) == 0 {
+		return
 	}
 
-	if fp := fnParams.Get(root); fp != "" {
-		res.elems = filepath.SplitList(fp)
+	for _, p := range root {
+		res.elems = append(res.elems, filepath.SplitList(p)...)
 	}
 
 	return
