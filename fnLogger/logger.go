@@ -25,35 +25,35 @@ func (x *Logger) SetLevel(lv Level) {
 }
 
 func (x *Logger) Trace(format string, args ...any) {
-	if x.level <= Trace {
+	if Trace < x.level {
 		return
 	}
 	x.print(format, args...)
 }
 
 func (x *Logger) Info(format string, args ...any) {
-	if x.level <= Info {
+	if Info < x.level {
 		return
 	}
 	x.print(format, args...)
 }
 
 func (x *Logger) Warn(format string, args ...any) {
-	if x.level <= Warn {
+	if Warn < x.level {
 		return
 	}
 	x.print(format, args...)
 }
 
 func (x *Logger) Error(format string, args ...any) {
-	if x.level <= Error {
+	if Error < x.level {
 		return
 	}
 	x.print(format, args...)
 }
 
 func (x *Logger) Fatal(format string, args ...any) {
-	if x.level <= Fatal {
+	if Fatal < x.level {
 		return
 	}
 	x.print(format, args...)
