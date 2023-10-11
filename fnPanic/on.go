@@ -12,14 +12,14 @@ import (
 func On(err error) {
 	if err != nil {
 		panicLogger("%s", err.Error())
-		panic("")
+		panic(err)
 	}
 }
 
 func OnPointer[T any](value *T, err error) *T {
 	if err != nil {
 		panicLogger("%s", err.Error())
-		panic("")
+		panic(err)
 	}
 	return value
 }
@@ -27,7 +27,7 @@ func OnPointer[T any](value *T, err error) *T {
 func OnValue[T any](value T, err error) T {
 	if err != nil {
 		panicLogger("%s", err.Error())
-		panic("")
+		panic(err)
 	}
 	return value
 }
@@ -35,7 +35,7 @@ func OnValue[T any](value T, err error) T {
 func Get[T any](value T, err error) T {
 	if err != nil {
 		panicLogger("%s", err.Error())
-		panic("")
+		panic(err)
 	}
 	return value
 }
@@ -43,7 +43,7 @@ func Get[T any](value T, err error) T {
 func IsTrue(v bool, err error) {
 	if !v {
 		panicLogger("%s", err.Error())
-		panic("")
+		panic(err)
 	}
 }
 
@@ -72,5 +72,6 @@ func panicLogger(format string, args ...any) {
 		v[fmt.Sprintf("callstack_%d", i)] = fmt.Sprintf("%s:%d %s", filepath.Base(file), line, fnName)
 	}
 
+	v["error"] = fmt.Sprintf(format, args...)
 	log.Print(v.ToJson())
 }
