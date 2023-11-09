@@ -18,3 +18,11 @@ func ToString(v any) (str string, err error) {
 	}
 	return
 }
+
+func ToStringP(v any) (str string) {
+	var err error
+	if str, err = ToString(v); err != nil {
+		panic(err)
+	}
+	return
+}
