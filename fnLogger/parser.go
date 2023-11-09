@@ -1,6 +1,7 @@
 package fnLogger
 
 import (
+	"encoding/json"
 	"fmt"
 	"log"
 	"path/filepath"
@@ -33,3 +34,26 @@ func (x *DefaultPrinter) Print(v Fields) {
 func NewDefaultLogger() IfLogger {
 	return NewLogger(&DefaultPrinter{})
 }
+
+/* ------------------------------------------------------------------------------------------------------------ */
+
+// json parser
+
+func ToJson(v any) (str string, err error) {
+	var byteStr []byte
+	if byteStr, err = json.Marshal(v); err != nil {
+		return
+	}
+	str = string(byteStr)
+	return
+}
+
+func ToJsonP(v any) (str string) {
+	var err error
+	if str, err = ToJson(v); err != nil {
+		panic(err)
+	}
+	return
+}
+
+//
